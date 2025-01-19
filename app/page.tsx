@@ -4,13 +4,22 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MAIN_METADATA } from "@/lib/meta";
-import { API_BASE_URL } from "@/lib/routes";
+import {
+  API_BASE_URL,
+  BASE_URL,
+  GITHUB_URL,
+  PORTFOLIO_URL,
+} from "@/lib/routes";
+import { getRandomHttpCode, httpCodes } from "@/lib/httpcodes";
 
 export default function Home() {
   const [open, setOpen] = useState(false);
+  const [code, setCode] = useState(getRandomHttpCode());
+
+  const UNIQUE_URL = `${API_BASE_URL}/jpg/${code}`;
 
   return (
-    <main className="mx-auto p-4 max-w-xl space-y-8">
+    <main className="mx-auto p-4 max-w-2xl space-y-8">
       <Link
         className="bg-yellow-50 flex items-center justify-between p-4 rounded-lg space-x-2"
         href={""}
@@ -27,32 +36,44 @@ export default function Home() {
         <p className="text-zinc-600 text-sm">{MAIN_METADATA.DESCRIPTION}</p>
       </div>
       <div className="space-y-3">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between space-x-4">
           <Link
-            href={API_BASE_URL}
+            href={UNIQUE_URL}
             target="_blank"
-            className="text-blue-600 font-semibold"
+            className="text-blue-600 font-semibold truncate"
           >
-            {API_BASE_URL}
+            {UNIQUE_URL}
           </Link>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 flex-shrink-0">
             <button
               className="text-sm font-semibold"
               onClick={() => {
                 window.open(
-                  `https://twitter.com/intent/tweet?text=${"sadas"}-${API_BASE_URL}`,
+                  `https://twitter.com/intent/tweet?text=${code} HTTP status code as Akshay Kumar - ${BASE_URL}`,
                   "_blank"
                 );
               }}
             >
               📢 tweet
             </button>
-            <button className="text-sm font-semibold">🔄 refresh</button>
+            <button
+              className="text-sm font-semibold"
+              onClick={() => setCode(getRandomHttpCode())}
+            >
+              🔄 refresh
+            </button>
           </div>
         </div>
-        <div className="bg-zinc-100 border border-zinc-200 p-4 rounded-lg space-y-4">
-          <Image src="" alt="" width={600} height={300} />
-          <p className="text-sm text-center text-zinc-600">- asd</p>
+        <div className="bg-zinc-100 border border-zinc-200 p-4 rounded-lg space-y-2">
+          <Image
+            src={httpCodes[code].jpg}
+            alt={code}
+            width={610}
+            height={300}
+          />
+          <p className="text-sm text-center text-zinc-600">
+            - {httpCodes[code].caption}
+          </p>
         </div>
       </div>
       <div className="bg-zinc-100 border border-zinc-200 rounded-lg">
@@ -65,7 +86,7 @@ export default function Home() {
           </button>
           {open && (
             <Link
-              href=""
+              href={`${GITHUB_URL}/tree/main/lib/httpcodes.ts`}
               target="_blank"
               className="text-blue-600 font-semibold"
             >
@@ -74,10 +95,20 @@ export default function Home() {
           )}
         </div>
         {open && (
-          <div className="border-t-2 border-zinc-400">
-            <p className="px-4 py-2 border-b border-zinc-300">asdas</p>
-            <p className="px-4 py-2">asdas</p>
-            <p className="px-4 py-2">asdas</p>
+          <div className="border-t-2 border-zinc-400 grid grid-cols-2 gap-4 p-4">
+            {Object.keys(httpCodes).map((code) => (
+              <div className="space-y-2" key={code}>
+                <Image
+                  src={httpCodes[code].jpg}
+                  alt={code}
+                  width={200}
+                  height={100}
+                />
+                <p className="text-sm text-center text-zinc-600">
+                  {code} - {httpCodes[code].message}
+                </p>
+              </div>
+            ))}
           </div>
         )}
       </div>
@@ -85,7 +116,7 @@ export default function Home() {
         <p className="mb-3">
           👋{" "}
           <Link
-            href="https://www.aniketpawar.com/"
+            href={PORTFOLIO_URL}
             target="_blank"
             className="text-blue-600 font-semibold"
           >
@@ -94,12 +125,12 @@ export default function Home() {
         </p>
         <a
           className="github-button"
-          href="https://github.com/Aniket-508/instagram-posts-generator"
+          href={GITHUB_URL}
           data-color-scheme="no-preference: light; light: light; dark: dark;"
           data-icon="octicon-star"
           data-size="large"
           data-show-count="true"
-          aria-label="Star Aniket-508/instagram-posts-generator on GitHub"
+          aria-label="Star Aniket-508/akshaykumar-rest on GitHub"
         >
           Star
         </a>
