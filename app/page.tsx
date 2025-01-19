@@ -8,6 +8,7 @@ import {
   API_BASE_URL,
   BASE_URL,
   GITHUB_URL,
+  INDIAN_QUOTES_URL,
   PORTFOLIO_URL,
 } from "@/lib/routes";
 import { getRandomHttpCode, httpCodes } from "@/lib/httpcodes";
@@ -22,7 +23,7 @@ export default function Home() {
     <main className="mx-auto p-4 max-w-2xl space-y-8">
       <Link
         className="bg-yellow-50 flex items-center justify-between p-4 rounded-lg space-x-2"
-        href={""}
+        href={INDIAN_QUOTES_URL}
         target="_blank"
       >
         <span className="text-2xl">✨</span>
