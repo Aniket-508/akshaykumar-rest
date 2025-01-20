@@ -5,7 +5,6 @@ export const MAIN_METADATA = {
   TITLE: "akshaykumar-rest",
   DESCRIPTION:
     "A free REST API for HTTP Codes with Akshay Kumar images (AK as a Service)",
-  IMAGE:
-    "https://ik.imagekit.io/2oajjadqkz/1731074413647.jpg?updatedAt=1731074450615",
+  IMAGE: "https://fav.farm/%F0%9F%90%99",
   URL: BASE_URL,
 };
