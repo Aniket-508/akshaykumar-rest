@@ -2,32 +2,32 @@ import { HttpCodes } from "@/types";
 
 export const httpCodes: HttpCodes = {
   "200": {
-    gif: "/images/http-codes/200.gif",
-    jpg: "/images/http-codes/200.jpg",
+    gif: "/images/200.gif",
+    png: "/images/200.png",
     message: "OK",
     caption: "Everything is working perfectly!",
   },
   "404": {
-    gif: "/images/http-codes/404.gif",
-    jpg: "/images/http-codes/404.jpg",
+    gif: "/images/404.gif",
+    png: "/images/404.png",
     message: "Not Found",
     caption: "The requested resource could not be found!",
   },
   "500": {
-    gif: "/images/http-codes/500.gif",
-    jpg: "/images/http-codes/500.jpg",
+    gif: "/images/500.gif",
+    png: "/images/500.png",
     message: "Internal Server Error",
     caption: "Something went wrong on the server!",
   },
   "403": {
-    gif: "/images/http-codes/403.gif",
-    jpg: "/images/http-codes/403.jpg",
+    gif: "/images/403.gif",
+    png: "/images/403.png",
     message: "Forbidden",
     caption: "You do not have permission to access this resource!",
   },
   "401": {
-    gif: "/images/http-codes/401.gif",
-    jpg: "/images/http-codes/401.jpg",
+    gif: "/images/401.gif",
+    png: "/images/401.png",
     message: "Unauthorized",
     caption: "Authentication is required to access this resource!",
   },

@@ -12,12 +12,12 @@ import {
   PORTFOLIO_URL,
 } from "@/lib/routes";
 import { getRandomHttpCode, httpCodes } from "@/lib/httpcodes";
+import QuotesInfo from "@/components/quotes-info";
 
 export default function Home() {
-  const [open, setOpen] = useState(false);
   const [code, setCode] = useState(getRandomHttpCode());
 
-  const UNIQUE_URL = `${API_BASE_URL}/jpg/${code}`;
+  const UNIQUE_URL = `${API_BASE_URL}/${code}`;
 
   return (
     <main className="mx-auto p-4 max-w-2xl space-y-8">
@@ -67,7 +67,7 @@ export default function Home() {
         </div>
         <div className="bg-zinc-100 border border-zinc-200 p-4 rounded-lg space-y-2">
           <Image
-            src={httpCodes[code].jpg}
+            src={httpCodes[code].png}
             alt={code}
             width={610}
             height={300}
@@ -77,42 +77,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className="bg-zinc-100 border border-zinc-200 rounded-lg">
-        <div className="flex items-center p-4 justify-between space-x-4">
-          <button
-            className="font-semibold"
-            onClick={() => setOpen((prev) => !prev)}
-          >
-            {open ? "⬇️" : "➡️"} HTTP Codes List
-          </button>
-          {open && (
-            <Link
-              href={`${GITHUB_URL}/tree/main/lib/httpcodes.ts`}
-              target="_blank"
-              className="text-blue-600 font-semibold"
-            >
-              source
-            </Link>
-          )}
-        </div>
-        {open && (
-          <div className="border-t-2 border-zinc-400 grid grid-cols-2 gap-4 p-4">
-            {Object.keys(httpCodes).map((code) => (
-              <div className="space-y-2" key={code}>
-                <Image
-                  src={httpCodes[code].jpg}
-                  alt={code}
-                  width={200}
-                  height={100}
-                />
-                <p className="text-sm text-center text-zinc-600">
-                  {code} - {httpCodes[code].message}
-                </p>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+      <QuotesInfo />
       <div className="text-center">
         <p className="mb-3">
           👋{" "}

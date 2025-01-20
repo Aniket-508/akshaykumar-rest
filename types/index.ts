@@ -1,6 +1,6 @@
 export interface HttpCode {
   gif: string;
-  jpg: string;
+  png: string;
   message: string;
   caption: string;
 }
