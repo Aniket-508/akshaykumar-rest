@@ -1,4 +1,4 @@
-# [akshaykumar-rest](https://akshaykumar-rest.vercel.app/)
+# 🦹‍♂️ [akshaykumar-rest](https://akshaykumar-rest.vercel.app/)
 
 A free REST API for HTTP Codes with Akshay Kumar images (AK as a Service)
 
