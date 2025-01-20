@@ -16,10 +16,24 @@ export async function GET(
     }
 
     const response = await fetch(`${BASE_URL}/images/${code}.png`);
-    const blob = await response.blob();
 
     const headers = new Headers();
     headers.set("Content-Type", "image/*");
+
+    // Check if the image exists
+    if (!response.ok) {
+      if (response.status === 404) {
+        const errorBlob = (await fetch(`${BASE_URL}/images/400.png`)).blob();
+        return NextResponse.json(errorBlob, {
+          status: 404,
+          statusText: "Not Found",
+          headers,
+        });
+      }
+      throw new Error(`Unexpected response: ${response.statusText}`);
+    }
+
+    const blob = await response.blob();
 
     return new NextResponse(blob, { status: 200, statusText: "OK", headers });
   } catch (error) {
