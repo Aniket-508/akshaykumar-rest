@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { GITHUB_URL } from "@/lib/routes";
 
-export default function QuotesInfo() {
+export default function HTTPCodesInfo() {
   const [open, setOpen] = useState(false);
 
   return (
