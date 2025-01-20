@@ -33,7 +33,7 @@ export default function Main({ initialCode }: { initialCode: string }) {
         <span className="text-2xl">✨</span>
       </Link>
       <div className="space-y-3 text-center">
-        <h2 className="font-bold text-2xl">🐙 akshaykumar-rest</h2>
+        <h2 className="font-bold text-2xl">🦹‍♂️ akshaykumar-rest</h2>
         <p className="text-zinc-600 text-sm">{MAIN_METADATA.DESCRIPTION}</p>
       </div>
       {code && (
