@@ -1,5 +1,4 @@
 export interface HttpCode {
-  gif: string;
   png: string;
   message: string;
   caption: string;
