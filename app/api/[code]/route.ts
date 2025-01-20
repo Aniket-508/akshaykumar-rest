@@ -23,8 +23,9 @@ export async function GET(
     // Check if the image exists
     if (!response.ok) {
       if (response.status === 404) {
-        const errorBlob = (await fetch(`${BASE_URL}/images/400.png`)).blob();
-        return NextResponse.json(errorBlob, {
+        const notFoundResponse = await fetch(`${BASE_URL}/images/404.png`);
+        const notFoundBlob = await notFoundResponse.blob();
+        return NextResponse.json(notFoundBlob, {
           status: 404,
           statusText: "Not Found",
           headers,
