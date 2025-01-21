@@ -14,7 +14,7 @@ export default function HTTPCodesInfo() {
           className="font-semibold"
           onClick={() => setOpen((prev) => !prev)}
         >
-          {open ? "⬇️" : "➡️"} HTTP Codes List
+          {open ? "⬇️" : "➡️"} HTTP status codes List
         </button>
         {open && (
           <Link
