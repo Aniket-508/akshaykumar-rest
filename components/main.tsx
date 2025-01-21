@@ -6,7 +6,6 @@ import Image from "next/image";
 import { MAIN_METADATA } from "@/lib/meta";
 import {
   API_BASE_URL,
-  BASE_URL,
   GITHUB_URL,
   INDIAN_QUOTES_URL,
   PORTFOLIO_URL,
@@ -51,7 +50,7 @@ export default function Main({ initialCode }: { initialCode: string }) {
                 className="text-sm font-semibold"
                 onClick={() => {
                   window.open(
-                    `https://twitter.com/intent/tweet?text=${code} HTTP status code as Akshay Kumar - ${BASE_URL}`,
+                    `https://twitter.com/intent/tweet?text=${code} HTTP status code as Akshay Kumar - ${API_BASE_URL}/${code}`,
                     "_blank"
                   );
                 }}
